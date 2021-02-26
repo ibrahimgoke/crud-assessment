@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IceAndFireController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('books',[IceAndFireController::class,'getBooks']);
+
+Route::group(['prefix' => 'v1'], function () {
+
+      Route::post('books', [BookController::class, 'store']);
+      Route::get('books', [BookController::class, 'index']);
+      Route::patch('books/{book_id}', [BookController::class, 'update']);
+      Route::get('books/{book_id}', [BookController::class, 'show']);
+      Route::delete('books/{book_id}', [BookController::class, 'destroy']);
+  
 });
