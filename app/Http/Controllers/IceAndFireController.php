@@ -9,7 +9,7 @@ class IceAndFireController extends Controller
 {
     public function getBooks()
     {
-        $response = Http::get('https://www.anapioficeandfire.com/api/books/1');
+        $response = Http::get('https://www.anapioficeandfire.com/api/books');
    
         $jsonData = $response->json();
 

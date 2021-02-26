@@ -16,7 +16,7 @@ use App\Http\Controllers\BookController;
 |
 */
 
-Route::get('books',[IceAndFireController::class,'getBooks']);
+Route::get('external-books',[IceAndFireController::class,'getBooks']);
 
 Route::group(['prefix' => 'v1'], function () {
 
